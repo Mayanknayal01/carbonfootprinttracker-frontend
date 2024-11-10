@@ -37,7 +37,7 @@ const RegisterPage = () => {
         };
         try {
             // Send the POST request with form data
-            const response = await fetch('http://localhost:5000/register', {
+            const response = await fetch('https://carbon-footprint-traker-3.onrender.com/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

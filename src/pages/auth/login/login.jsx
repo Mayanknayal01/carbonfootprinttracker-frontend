@@ -23,7 +23,7 @@ const LoginPage = () => {
 
     try {
       // Make POST request to backend for login
-      const response = await fetch("http://localhost:5000/login", {
+      const response = await fetch("https://carbon-footprint-traker-3.onrender.com/login", {
         method: "POST", // Corrected method to POST
         headers: {
           "Content-Type": "application/json",
