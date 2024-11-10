@@ -1,11 +1,22 @@
 import React from 'react';
-import AppRouter from './router';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LandingPage from './pages/landingPage/landingPage';
+import LoginPage from './pages/auth/login/login';
+import RegisterPage from './pages/auth/register/register';
+import HomePage from './pages/homePage/home';
 
 function App() {
     return (
+        <Router>
         <div>
-            <AppRouter />
+            <Routes>
+            <Route path='/' element={<LandingPage /> } />
+            <Route path="/login" element={<LoginPage />} /> {/* Default route, shows LoginPage */}
+            <Route path="/register" element={<RegisterPage />} /> {/* Route for RegisterPage */}
+            <Route path='/home' element={<HomePage /> } />
+            </Routes>
         </div>
+        </Router>
     );
 }
 
