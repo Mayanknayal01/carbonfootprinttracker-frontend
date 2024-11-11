@@ -1,0 +1,21 @@
+.banner {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../../assets/images/landingBanner.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.banner-content h2 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.banner-content p {
+    font-size: 1.25rem;
+}
