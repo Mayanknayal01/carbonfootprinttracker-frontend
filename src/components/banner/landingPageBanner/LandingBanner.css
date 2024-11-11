@@ -1,4 +1,4 @@
-.banner {
+.LandingBanner {
     height: 100vh;
     display: flex;
     align-items: center;
@@ -10,12 +10,35 @@
     text-align: center;
     opacity: 0.9;
 }
-
-.banner-content h2 {
+.LandingBanner-content h2 {
     font-size: 3rem;
-    margin: 0;
+    margin: 2rem;
+    color: white;
 }
 
-.banner-content p {
-    font-size: 1.25rem;
+.LandingBanner-content span {
+    color: rgb(4, 213, 4);
 }
+
+.LandingBanner-content p {
+    font-size: 1.25rem;
+    color: white;
+    margin: 2rem;
+}
+
+.LandingBanner-content button {
+    padding: 0.5rem 2rem;
+    margin-top: 1rem;
+    background-color: rgb(15, 214, 15);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 3rem;
+    font-size: larger;
+}
+
+.LandingBanner-content button:hover {
+    background-color: rgb(8, 187, 8);
+}
+
