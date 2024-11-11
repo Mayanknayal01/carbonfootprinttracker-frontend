@@ -3,27 +3,34 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f9;
-    }
-    
-    .login-box {
+    background-image: url('../../../assets/images/envbg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}   
+.login-box {
         padding: 40px;
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.5);
         border-radius: 8px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        width: 300px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        width: 22rem;
+        height: 22rem;
     }
     
-    h2 {
+    .login-box h2 {
         text-align: center;
         margin-bottom: 20px;
     }
+
+    .login-box p {
+        margin: 1.2rem;
+    }
     
-    .textbox {
+    .login-textbox {
         margin-bottom: 20px;
     }
     
-    .textbox input {
+    .login-textbox input {
         width: 100%;
         padding: 10px;
         margin: 5px 0;
@@ -31,11 +38,11 @@
         border-radius: 5px;
     }
     
-    .textbox input:focus {
+    .login-textbox input:focus {
         border-color: #007bff;
     }
     
-    .btn {
+    .login-btn {
         width: 100%;
         padding: 10px;
         background-color: #007bff;
@@ -45,7 +52,7 @@
         cursor: pointer;
     }
     
-    .btn:hover {
+    .login-btn:hover {
         background-color: #0056b3;
     }
     

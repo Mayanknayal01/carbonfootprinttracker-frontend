@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const navigate = useNavigate(); // Initialize navigate
 
   // Handle form data changes
   const handleChange = (e) => {
@@ -23,18 +24,20 @@ const LoginPage = () => {
 
     try {
       // Make POST request to backend for login
-      const response = await fetch("https://carbon-footprint-traker-3.onrender.com/login", {
-        method: "POST", // Corrected method to POST
+      const response = await fetch("http://localhost:5000/login", {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(details), // Send details in the request body
+        body: JSON.stringify(details),
       });
 
       if (response.ok) {
         const result = await response.json();
         alert("Login successful!"); // Show success message
         console.log(result); // Log the result from the backend
+
+        navigate("/home"); // Navigate to the homepage
       } else {
         alert("Login failed! Please check your credentials.");
       }
@@ -49,27 +52,27 @@ const LoginPage = () => {
       <div className="login-box">
         <h2>Login</h2>
         <form onSubmit={handleLogin}>
-          <div className="textbox">
+          <div className="login-textbox">
             <input
               type="email"
               name="email"
               placeholder="Email"
-              value={formData.email} // Access email from formData
-              onChange={handleChange} // Handle changes
+              value={formData.email}
+              onChange={handleChange}
               required
             />
           </div>
-          <div className="textbox">
+          <div className="login-textbox">
             <input
               type="password"
               name="password"
               placeholder="Password"
-              value={formData.password} // Access password from formData
-              onChange={handleChange} // Handle changes
+              value={formData.password}
+              onChange={handleChange}
               required
             />
           </div>
-          <button type="submit" className="btn">
+          <button type="submit" className="login-btn">
             Login
           </button>
         </form>

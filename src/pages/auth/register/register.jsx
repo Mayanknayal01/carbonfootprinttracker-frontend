@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './register.css';
 
 const RegisterPage = () => {
+
     // Single state to store all form data
     const [formData, setFormData] = useState({
         name: "",
@@ -37,7 +38,7 @@ const RegisterPage = () => {
         };
         try {
             // Send the POST request with form data
-            const response = await fetch('https://carbon-footprint-traker-3.onrender.com/register', {
+            const response = await fetch('http://localhost:5000/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -64,9 +65,9 @@ const RegisterPage = () => {
             <div className="register-box">
                 <h2>Register</h2>
                 <form onSubmit={handleRegister}>
-                    <div className="textbox">
+                    <div className="register-textbox">
                         <input
-                            type="text"
+                            type="register-text"
                             placeholder="Full Name"
                             name="name" // Name of the field to match with formData
                             value={formData.name}
@@ -74,7 +75,7 @@ const RegisterPage = () => {
                             required
                         />
                     </div>
-                    <div className="textbox">
+                    <div className="register-textbox">
                         <input
                             type="email"
                             placeholder="Email"
@@ -84,7 +85,7 @@ const RegisterPage = () => {
                             required
                         />
                     </div>
-                    <div className="textbox">
+                    <div className="register-textbox">
                         <input
                             type="password"
                             placeholder="Password"
@@ -94,7 +95,7 @@ const RegisterPage = () => {
                             required
                         />
                     </div>
-                    <div className="textbox">
+                    <div className="register-textbox">
                         <input
                             type="password"
                             placeholder="Confirm Password"
@@ -104,9 +105,9 @@ const RegisterPage = () => {
                             required
                         />
                     </div>
-                    <button type="submit" className="btn">Register</button>
+                    <button type="submit" className="register-btn">Register</button>
                 </form>
-                <p>Already have an account? <Link to="/">Login</Link></p>
+                <p>Already have an account? <Link to="/login">Login</Link></p>
             </div>
         </div>
     );
