@@ -1,0 +1,31 @@
+.Firstheader {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Firstheader h1 {
+    margin: 0;
+    font-size: 1.75rem;
+}
+
+.Firstheader nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.Firstheader nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.Firstheader nav ul li a:hover {
+    text-decoration: underline;
+}

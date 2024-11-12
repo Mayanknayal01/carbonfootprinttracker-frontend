@@ -2,23 +2,14 @@ import React from 'react';
 import './landingPage.css'; // Add custom CSS if needed
 import { useNavigate } from 'react-router-dom';
 import LandingBanner from '../../components/banner/landingPageBanner/LandingBanner';
+import FirstHeader from '../../components/header/firstHeader/FirstHeader';
 
 const LandingPage = () => {
     const navigate = useNavigate();
     return (
         <div className="landing-page">
         <LandingBanner />
-        {/* Header */}
-        <header className="header">
-                <h1><i>Carbon Footprint Tracker</i></h1>
-                <nav>
-                    <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#cta">Get Started</a></li>
-                    </ul>
-                </nav>
-            </header>
+        <FirstHeader />
 
         {/* Hero Section */}
         <section className="hero">
