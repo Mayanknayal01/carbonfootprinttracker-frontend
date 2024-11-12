@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import './register.css';
+import FirstHeader from "../../../components/header/firstHeader/FirstHeader";
 
 const RegisterPage = () => {
 
@@ -62,6 +63,7 @@ const RegisterPage = () => {
 
     return (
         <div className="register-container">
+        <FirstHeader />
             <div className="register-box">
                 <h2>Register</h2>
                 <form onSubmit={handleRegister}>
