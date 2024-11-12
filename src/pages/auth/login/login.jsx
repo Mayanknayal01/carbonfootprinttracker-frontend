@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
+import FirstHeader from "../../../components/header/firstHeader/FirstHeader";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -49,6 +50,7 @@ const LoginPage = () => {
 
   return (
     <div className="login-container">
+    <FirstHeader />
       <div className="login-box">
         <h2>Login</h2>
         <form onSubmit={handleLogin}>
