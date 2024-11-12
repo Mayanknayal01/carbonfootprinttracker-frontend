@@ -4,52 +4,94 @@ body {
     font-family: Arial, sans-serif;
     }
     
-    .hero {
-        text-align: center;
+    .landing-features {
         padding: 2rem;
-        background: #3498db;
-        color: white;
-    }
-    
-    .hero button {
-        padding: 0.5rem 2rem;
-        margin-top: 1rem;
-        background-color: #e74c3c;
-        color: white;
-        border: none;
-        cursor: pointer;
-    }
-    
-    .features {
-        padding: 2rem;
-        background: #ecf0f1;
+        background: white;
         text-align: center;
     }
+
+    .landing-features h1{
+        font-size: 2.5rem;
+        font-weight: 600;
+    }
     
-    .feature-list {
+    .landing-feature-list {
         display: flex;
         justify-content: space-around;
     }
     
-    .feature {
-        width: 30%;
+    .landing-feature {
+        width: 25%;
+        border-radius: 5px;
+        min-height: 15rem;
+        margin: 10px;
+        box-shadow: 1px 1px 2px black;
+        padding: 2rem;
+    }
+    .landing-feature h3 {
+        margin: 1rem;
+        color: rgb(4, 213, 4);
     }
     
-    .how-it-works {
-        padding: 2rem;
-        background: #3498db;
+    /* .landing-how-it-works {
         color: white;
         text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
-    
-    .cta {
+    .landing-how-it-works-first {
+        min-height: 20rem;
+        background-color: aqua;
+        background-image: url(../../assets//images/howworks.jpg);
+
+    } */
+
+    .landing-how-it-works {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: green;
+    }
+        .landing-image-container,
+        .landing-steps-container {
+            flex: 1;
+            padding: 2rem;
+        }
+        
+        .landing-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .landing-steps-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .landing-steps-container h1 {
+            margin-bottom: 5rem;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .landing-steps-container ol {
+            list-style-position: inside;
+            color: white;
+            line-height: 50px;
+            font-size: 1.5rem;
+        }
+        
+    .landing-cta {
         padding: 2rem;
         background-color: #e74c3c;
         color: white;
         text-align: center;
     }
     
-    .cta button {
+    .landing-cta button {
         padding: 0.5rem 2rem;
         background-color: white;
         color: #e74c3c;
@@ -57,7 +99,7 @@ body {
         cursor: pointer;
     }
     
-    .footer {
+    .landing-footer {
         padding: 1rem;
         background: #2c3e50;
         color: white;
