@@ -36,19 +36,6 @@ const LandingPage = () => {
         </section>
 
         {/* How It Works Section */}
-        {/* <section id="landing-how-it-works" className="landing-how-it-works">
-            <div className="landing-how-it-works-first">
-                <h2>How It Works</h2>
-                <ol>
-                <li>Create an account and log your daily activities.</li>
-                <li>Track your carbon footprint in real-time.</li>
-                <li>Get actionable insights and personalized suggestions.</li>
-                </ol>
-            </div>
-            <div className="landing-how-it-works-second">
-                <img src={neededImages.howitworks} alt="how it works images" />
-            </div>
-        </section> */}
 
         <section className="landing-how-it-works">
             <div className="landing-image-container">
@@ -63,8 +50,9 @@ const LandingPage = () => {
                 {/* Add more steps as needed */}
                 </ol>
             </div>
-            </section>
+        </section>
 
+            {/* stats section */}
             <Stats />
 
         {/* Call to Action Section */}
