@@ -1,10 +1,10 @@
 // Header.js
 import React from 'react';
 
-const Header = () => (
+const SearchBar = () => (
     <div className="header">
         <input type="text" placeholder="Search" />
     </div>
 );
 
-export default Header;
+export default SearchBar;

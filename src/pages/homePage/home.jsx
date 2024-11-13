@@ -90,18 +90,28 @@
 // Home.jsx
 import React from 'react';
 import Sidebar from '../../components/homeComponents/Sidebar';
-import Header from '../../components/homeComponents/Header';
+import SearchBar from '../../components/homeComponents/SearchBar';
 import Dashboard from '../../components/homeComponents/Dashboard';
 import './home.css';
+import Chart from '../../components/homeComponents/Chart';
+import PieChart from '../../components/homeComponents/PieChart';
+import OrdersList from '../../components/homeComponents/OrdersList';
+import RecentSales from '../../components/homeComponents/RecentSales';
 
 const Home = () => {
     return (
         <div className="home">
         <Sidebar />
-        <main>
-            <Header />
+        <first>
+            <SearchBar />
             <Dashboard />
-        </main>
+            <Chart />
+            <OrdersList />
+        </first>
+        <div className="charts-section">
+        <PieChart />
+        <RecentSales />
+        </div>
         </div>
     );
 };

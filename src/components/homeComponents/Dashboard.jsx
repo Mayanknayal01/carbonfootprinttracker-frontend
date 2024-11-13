@@ -1,9 +1,5 @@
 // Dashboard.js
 import React from 'react';
-import Chart from './Chart';
-import PieChart from './PieChart';
-import OrdersList from './OrdersList';
-import RecentSales from './RecentSales';
 
 const Dashboard = () => (
     <div className="dashboard">
@@ -23,12 +19,6 @@ const Dashboard = () => (
             <button>Go Pro</button>
         </div>
         </div>
-        <div className="charts-section">
-        <Chart />
-        <PieChart />
-        </div>
-        <OrdersList />
-        <RecentSales />
     </div>
 );
 
