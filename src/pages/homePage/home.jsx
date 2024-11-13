@@ -91,7 +91,7 @@
 import React from 'react';
 import Sidebar from '../../components/homeComponents/Sidebar';
 import SearchBar from '../../components/homeComponents/SearchBar';
-import Dashboard from '../../components/homeComponents/Dashboard';
+import DashboardData from '../../components/homeComponents/DashboardData';
 import './home.css';
 import Chart from '../../components/homeComponents/Chart';
 import PieChart from '../../components/homeComponents/PieChart';
@@ -102,12 +102,12 @@ const Home = () => {
     return (
         <div className="home">
         <Sidebar />
-        <first>
+        <main>
             <SearchBar />
-            <Dashboard />
+            <DashboardData />
             <Chart />
             <OrdersList />
-        </first>
+        </main>
         <div className="charts-section">
         <PieChart />
         <RecentSales />
