@@ -351,12 +351,65 @@ html, body {
     }
 }
 
-    
-    .charts-section {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-    }
+    /* dashboard section ends here */
+
+    /* bar chart section starts here */
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #f8f7f4; /* Light beige background */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+/* Axis Labels */
+.recharts-cartesian-axis-tick-value {
+    font-family: 'Arial', sans-serif;
+    font-size: 0.85rem;
+    fill: #7d7d7d; /* Light gray text */
+}
+
+.recharts-cartesian-axis-tick-line {
+    stroke: #f2f2f2;
+}
+
+/* Y-Axis Grid Lines */
+.recharts-cartesian-grid-line {
+    stroke: #f2f2f2; /* Light grid lines */
+}
+
+/* Bars */
+.recharts-bar-rectangle {
+    fill: #1c1c1c; /* Black bottom fill */
+    transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.recharts-bar-rectangle:hover {
+    fill: #333333; /* Slightly lighter black */
+    transform: scaleY(1.05); /* Slight zoom effect */
+}
+
+/* Tooltip */
+.recharts-tooltip-wrapper {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    font-size: 0.9rem;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Tooltip Value */
+.recharts-tooltip-item {
+    font-weight: bold;
+    color: #1c1c1c;
+}
+
     
     .orders-list, .recent-sales {
         margin-top: 20px;
