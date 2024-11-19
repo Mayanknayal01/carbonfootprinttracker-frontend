@@ -1,9 +1,9 @@
 // RecentSales.js
 import React from 'react';
 
-const RecentSales = () => (
+const YourData = () => (
     <div className="recent-sales">
-        <h4>Recent Sales</h4>
+        <h4>Today's Carbon Produced:- </h4>
         <ul>
         <li>Steven Summer - +$52.00</li>
         <li>Jordan Maizee - +$83.00</li>
@@ -12,4 +12,4 @@ const RecentSales = () => (
     </div>
 );
 
-export default RecentSales;
+export default YourData;

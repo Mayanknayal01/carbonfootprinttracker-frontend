@@ -95,8 +95,7 @@ import DashboardData from '../../components/homeComponents/DashboardData';
 import './home.css';
 import Chart from '../../components/homeComponents/Chart';
 import PieChart from '../../components/homeComponents/PieChart';
-import OrdersList from '../../components/homeComponents/OrdersList';
-import RecentSales from '../../components/homeComponents/RecentSales';
+import YourData from '../../components/homeComponents/YourData';
 
 const Home = () => {
     return (
@@ -109,8 +108,7 @@ const Home = () => {
         </main>
         <div className="charts-section">
             <PieChart />
-            <RecentSales />
-            <OrdersList />
+            <YourData />
         </div>
         </div>
     );

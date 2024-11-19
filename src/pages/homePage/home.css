@@ -414,8 +414,7 @@ html, body {
     /* main ends here */
 
     /* charts section css starts here */
-    /* pie chart css starts */
-
+    
     .charts-section {
         margin-top: 4rem;
         display: flex;
@@ -423,14 +422,8 @@ html, body {
         align-items: center;
         gap: 2rem;
     }
-
-
-
-
-
-
-
-    .orders-list, .recent-sales {
+    
+    .recent-sales {
         margin-top: 20px;
     }
     
