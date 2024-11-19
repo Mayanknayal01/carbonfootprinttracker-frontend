@@ -8,7 +8,7 @@ const data = [
     { name: 'Offline Sales', value: 16 },
 ];
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
+const COLORS = ['red', '#00C49F', '#FFBB28'];
 
 const CustomPieChart = () => (
     <PieChart width={200} height={200}>

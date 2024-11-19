@@ -106,11 +106,11 @@ const Home = () => {
             <SearchBar />
             <DashboardData />
             <Chart />
-            <OrdersList />
         </main>
         <div className="charts-section">
-        <PieChart />
-        <RecentSales />
+            <PieChart />
+            <RecentSales />
+            <OrdersList />
         </div>
         </div>
     );
