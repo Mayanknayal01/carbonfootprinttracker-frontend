@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './register.css';
 import FirstHeader from "../../../components/header/firstHeader/FirstHeader";
 
 const RegisterPage = () => {
-
+    const navigate = useNavigate(); // Initialize navigate
     // Single state to store all form data
     const [formData, setFormData] = useState({
         name: "",
@@ -52,6 +52,7 @@ const RegisterPage = () => {
                 const result = await response.json();
                 alert("Registration successful!");
                 console.log(result);
+                navigate("/home"); 
             } else {
                 alert("Registration failed!");
             }
