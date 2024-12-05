@@ -1,0 +1,96 @@
+/* General Styling */
+.stats-page {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 3rem;
+    background-color: #f8f9fa; /* Light gray background */
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header Styling */
+.stats-page h2 {
+    font-size: 24px;
+    color: #343a40; /* Dark gray */
+    margin-bottom: 20px;
+}
+
+/* Form Container */
+.carbon-footprint-form {
+    background-color: #ffffff; /* White background */
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Form Labels */
+.carbon-footprint-form label {
+    display: block;
+    font-size: 16px;
+    color: #495057; /* Medium gray */
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+/* Form Inputs */
+.carbon-footprint-form input,
+.carbon-footprint-form select {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da; /* Light border */
+    border-radius: 4px;
+    font-size: 14px;
+    color: #495057;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.carbon-footprint-form input:focus,
+.carbon-footprint-form select:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5); /* Subtle glow */
+}
+
+/* Submit Button */
+.carbon-footprint-form button {
+    background-color: #28a745; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carbon-footprint-form button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .carbon-footprint-form {
+        padding: 15px 20px;
+    }
+
+    .carbon-footprint-form label {
+        font-size: 14px;
+    }
+
+    .carbon-footprint-form input,
+    .carbon-footprint-form select {
+        font-size: 12px;
+    }
+
+    .carbon-footprint-form button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

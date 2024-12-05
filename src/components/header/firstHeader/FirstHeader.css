@@ -4,7 +4,8 @@
     width: 100%;
     background: rgba(0, 0, 0, 0.3);
     color: white;
-    padding: 1rem 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,12 +15,14 @@
     margin: 0;
     font-size: 1.75rem;
     color: white;
+    padding-left: 2rem;
 }
 
 .Firstheader nav ul {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
+    padding-right: 2rem;
 }
 
 .Firstheader nav ul li a {
