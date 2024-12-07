@@ -5,7 +5,7 @@ import FirstHeader from "../../../components/header/firstHeader/FirstHeader";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
 
   // Handle form data changes
   const handleChange = (e) => {
@@ -19,12 +19,11 @@ const LoginPage = () => {
   // Handle login on form submit
   const handleLogin = async (e) => {
     e.preventDefault();
-    const { email, password } = formData; // Destructure formData to get email and password
+    const { email, password } = formData;
 
-    const details = { email, password }; // Prepare the details object
+    const details = { email, password };
 
     try {
-      // Make POST request to backend for login
       const response = await fetch("http://localhost:5000/login", {
         method: "POST",
         headers: {
@@ -33,14 +32,16 @@ const LoginPage = () => {
         body: JSON.stringify(details),
       });
 
-      if (response.ok) {
-        const result = await response.json();
-        alert("Login successful!"); // Show success message
-        console.log(result); // Log the result from the backend
+      const result = await response.json(); // Parse the response only once
 
-        navigate("/home"); // Navigate to the homepage
+      if (response.ok) {
+        localStorage.setItem("userId", result.id); // Save userId in localStorage
+        alert("Login successful!");
+        console.log("Logged in user:", result);
+        navigate("/home"); // Navigate to homepage after success
       } else {
-        alert("Login failed! Please check your credentials.");
+        // Show error message from backend
+        alert(result.error || "Login failed! Please check your credentials.");
       }
     } catch (error) {
       console.error("Error during login:", error);
@@ -50,7 +51,7 @@ const LoginPage = () => {
 
   return (
     <div className="login-container">
-    <FirstHeader />
+      <FirstHeader />
       <div className="login-box">
         <h2>Login</h2>
         <form onSubmit={handleLogin}>

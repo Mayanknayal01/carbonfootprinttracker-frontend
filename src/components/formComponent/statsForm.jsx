@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FirstHeader from '../header/firstHeader/FirstHeader';
 import './statsForm.css';
 
@@ -13,16 +13,61 @@ const StatsForm = () => {
         gasConsumption: ''
     });
 
+    const [userId, setUserId] = useState(null);
+
+    // Retrieve userId from localStorage on component mount
+    useEffect(() => {
+        const storedUserId = localStorage.getItem('userId');
+        if (storedUserId) {
+            setUserId(storedUserId);
+        } else {
+            alert('User ID not found. Please log in or register first.');
+        }
+    }, []);
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!userId) {
+            alert('Cannot submit form. User ID is missing.');
+            return;
+        }
+
         console.log('Form Data Submitted:', formData);
-        alert('Your carbon footprint calculation is in progress!');
+
         const carbonFootprint = calculateCarbonFootprint(formData);
-        alert(`Estimated Carbon Footprint: ${carbonFootprint.toFixed(2)} kg CO₂/year`);
+
+        const dataToSubmit = {
+            ...formData,
+            userId: userId,
+            carbonFootprint: carbonFootprint.toFixed(2) // Include calculated footprint
+        };
+
+        try {
+            const response = await fetch('http://localhost:5000/submit-stats', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataToSubmit)
+            });
+
+            if (response.ok) {
+                const responseData = await response.json();
+                console.log('Form successfully submitted:', responseData);
+                alert(`Form submitted! Estimated Carbon Footprint: ${carbonFootprint.toFixed(2)} kg CO₂/year`);
+            } else {
+                const errorData = await response.json();
+                console.error('Error submitting form:', errorData);
+                alert('Error submitting form. Please try again.');
+            }
+        } catch (error) {
+            console.error('Request failed:', error);
+            alert('Network error. Please try again.');
+        }
     };
 
     // General formula for carbon footprint calculation
