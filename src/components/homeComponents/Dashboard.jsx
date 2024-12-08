@@ -53,20 +53,20 @@ const Dashboard = ({ data, prevData }) => {
                 {/* Total Carbon Footprint Card */}
                 <div className="card balance">
                     <h4>Total Carbon Footprint</h4>
-                    <p>{data.carbonFootprint} kg CO2</p>
+                    <p>{data.carbonFootprint.toFixed(2)} kg CO2</p>
                     <div className="trend">
                         {getTrendIcon(data.carbonFootprint, prevData.carbonFootprint)}
-                        <small>{data.carbonFootprint > prevData.carbonFootprint ? '- ' : '+ '}{Math.abs(data.carbonFootprint - prevData.carbonFootprint)} kg</small>
+                        <small>{data.carbonFootprint > prevData.carbonFootprint ? '+ ' : '+ '}{(Math.abs(data.carbonFootprint - prevData.carbonFootprint).toFixed(2))} kg</small>
                     </div>
                 </div>
 
                 {/* Carbon Reduction Card */}
                 <div className="card sales">
-                    <h4>Carbon Reduction</h4>
-                    <p>{data.carbonReduction} kg CO2</p>
+                    <h4>Last Updated Carbon Footprint</h4>
+                    <p>{data.carbonIncrease} kg CO2</p>
                     <div className="trend">
                         {getTrendIcon(data.carbonReduction, prevData.carbonReduction)}
-                        <small>{data.carbonReduction > prevData.carbonReduction ? '+ ' : '- '}{Math.abs(data.carbonReduction - prevData.carbonReduction)} kg</small>
+                        <small>{data.carbonReduction > prevData.carbonReduction ? '+ ' : '- '}{data.carbonIncrease} kg</small>
                     </div>
                 </div>
 

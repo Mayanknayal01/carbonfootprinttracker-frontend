@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate } from "react-router-dom";
 import FirstHeader from '../header/firstHeader/FirstHeader';
 import './statsForm.css';
 import { DataContext } from '../creatContext/creatContext';
 
 const StatsForm = () => {
+    const navigate = useNavigate();
     const { setUserData } = useContext(DataContext);
     const [formData, setFormData] = useState({
         name: '',
@@ -37,17 +39,16 @@ const StatsForm = () => {
             alert('Cannot submit form. User ID is missing.');
             return;
         }
-
+    
         console.log('Form Data Submitted:', formData);
-
         const carbonFootprint = calculateCarbonFootprint(formData);
-
+    
         const dataToSubmit = {
             ...formData,
             userId: userId,
             carbonFootprint: carbonFootprint.toFixed(2) // Include calculated footprint
         };
-
+    
         try {
             const response = await fetch('http://localhost:5000/submit-stats', {
                 method: 'POST',
@@ -56,14 +57,19 @@ const StatsForm = () => {
                 },
                 body: JSON.stringify(dataToSubmit)
             });
-            if (response.data) {
-                setUserData(response.data);
-              }
-
+    
             if (response.ok) {
                 const responseData = await response.json();
                 console.log('Form successfully submitted:', responseData);
+    
+                // Save the response data in localStorage
+                localStorage.setItem('userData', JSON.stringify(responseData));
+    
+                // Update context state with the new data
+                setUserData(responseData.data);
+    
                 alert(`Form submitted! Estimated Carbon Footprint: ${carbonFootprint.toFixed(2)} kg CO₂/year`);
+                navigate("/home");
             } else {
                 const errorData = await response.json();
                 console.error('Error submitting form:', errorData);
@@ -74,7 +80,7 @@ const StatsForm = () => {
             alert('Network error. Please try again.');
         }
     };
-
+    
     // General formula for carbon footprint calculation
     const calculateCarbonFootprint = (data) => {
         const transportEmissionFactors = {

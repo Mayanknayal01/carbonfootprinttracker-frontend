@@ -34,38 +34,49 @@ const LoginPage = () => {
         body: JSON.stringify(details),
       });
 
-      const result = await response.json(); // Parse the response only once
-
-      if (response.ok) {
-        localStorage.setItem("userId", result.id); // Save userId in localStorage
-        alert("Login successful!");
-        if (!result.data || result.data.length === 0) {
-          // If no data exists, set the context with user's name from the backend
-          const initialData = [
-            {
-              id: result.id, // Use the ID returned from the backend
-              name: result.user.name || "Guest", // Use the name or fallback to 'Guest'
-              transportmode: "public",
-              distance: 0,
-              electricity: 0,
-              waste: 0,
-              gas: 0,
-              carbonfootprint: 0.0,
-              date: new Date(),
-            },
-          ];
-          await setUserData(initialData); // Update the context
-        } else {
-          await setUserData(result.data); // Update context with the existing data
-        }
-
-        navigate("/home"); // Navigate to homepage after success
-      } else {
-        alert(result.error || "Login failed! Please check your credentials.");
+      if (!response.ok) {
+        // Handle error response
+        const errorResult = await response.json();
+        alert(errorResult.error || "Login failed! Please check your credentials.");
+        return;
       }
+
+      const result = await response.json(); // Parse the response once
+      console.log("Login response:", result); // Debugging information
+
+      // Save the user ID in localStorage
+      const userId = result.id || result.user?.id; // Use result.id or fallback to result.user.id
+      if (!userId) {
+        alert("User ID is missing in the response. Please try again.");
+        return;
+      }
+      localStorage.setItem("userId", userId);
+
+      // Update the context with user data
+      if (!result.data || result.data.length === 0) {
+        const initialData = [
+          {
+            id: userId,
+            name: result.user?.name || "Guest", // Use the name or fallback to 'Guest'
+            transportmode: "public",
+            distance: 0,
+            electricity: 0,
+            waste: 0,
+            gas: 0,
+            carbonfootprint: 0.0,
+            date: new Date(),
+          },
+        ];
+        setUserData(initialData); // Update context with default data
+      } else {
+        setUserData(result.data); // Update context with existing data
+      }
+
+      alert("Login successful!");
+      navigate("/home"); // Navigate to homepage after success
     } catch (error) {
       console.error("Error during login:", error);
-      alert("An error occurred. Please try again.");
+      alert("An error occurred while logging in. Please try again.");
     }
   };
 

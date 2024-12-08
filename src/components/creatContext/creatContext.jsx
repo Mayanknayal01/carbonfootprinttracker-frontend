@@ -16,12 +16,15 @@ export const DataProvider = (props) => {
       date: new Date(),
     },
   ]);
+  const  [userId, setUserId] = useState(null)
 
   console.log("Current userData:", userData);
 
   const contextValue = {
     userData,
     setUserData, // Expose setUserData directly
+    userId,
+    setUserId,
   };
 
   return (
