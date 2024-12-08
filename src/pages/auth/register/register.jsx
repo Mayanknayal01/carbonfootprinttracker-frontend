@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./register.css";
 import FirstHeader from "../../../components/header/firstHeader/FirstHeader";
+import { DataContext } from "../../../components/creatContext/creatContext";
+
 
 const RegisterPage = () => {
   const navigate = useNavigate();
+  const { setUserData } = useContext(DataContext); // Access setUserData from context
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -40,15 +43,29 @@ const RegisterPage = () => {
         body: JSON.stringify(details),
       });
 
-      const result = await response.json(); // Parse the response only once
+      const result = await response.json();
 
       if (response.ok) {
         localStorage.setItem("userId", result.id); // Save userId in localStorage
         alert("Registration successful!");
-        console.log("Registered user:", result);
-        navigate("/home"); // Navigate to home after success
+
+        // Initialize data with default values and update context
+        const initialData = [{
+          id: result.id, // Use the ID returned from backend
+          name: name, // Use the name entered by the user
+          transportmode: "public",
+          distance: 0,
+          electricity: 0,
+          waste: 0,
+          gas: 0,
+          carbonfootprint: 0.0,
+          date: new Date(),
+        },];
+        await setUserData(initialData); // Update context with default data
+
+        console.log("Initialized user data:", initialData);
+        navigate("/home");
       } else {
-        // Show the error message returned by the backend
         alert(result.error || "Registration failed!");
       }
     } catch (error) {

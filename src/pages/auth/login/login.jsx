@@ -1,16 +1,14 @@
-import React, { useState, useContext} from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import FirstHeader from "../../../components/header/firstHeader/FirstHeader";
 import { DataContext } from "../../../components/creatContext/creatContext";
 
 const LoginPage = () => {
-  const {setUserData } = useContext(DataContext);
+  const { setUserData } = useContext(DataContext);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
-  // Log userData changes
-  
   // Handle form data changes
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,7 +39,26 @@ const LoginPage = () => {
       if (response.ok) {
         localStorage.setItem("userId", result.id); // Save userId in localStorage
         alert("Login successful!");
-        await setUserData(result.data);
+        if (!result.data || result.data.length === 0) {
+          // If no data exists, set the context with user's name from the backend
+          const initialData = [
+            {
+              id: result.id, // Use the ID returned from the backend
+              name: result.user.name || "Guest", // Use the name or fallback to 'Guest'
+              transportmode: "public",
+              distance: 0,
+              electricity: 0,
+              waste: 0,
+              gas: 0,
+              carbonfootprint: 0.0,
+              date: new Date(),
+            },
+          ];
+          await setUserData(initialData); // Update the context
+        } else {
+          await setUserData(result.data); // Update context with the existing data
+        }
+
         navigate("/home"); // Navigate to homepage after success
       } else {
         alert(result.error || "Login failed! Please check your credentials.");

@@ -8,7 +8,7 @@ const Sidebar = ({data}) => (
         <div className="sidebar-profile">
             <h2>Carbon Footprint Tracker</h2>
             <img src={neededImages.profile} alt="Profile" />
-            <h3>{data[0].name}</h3>
+            <h3>{data}</h3>
             <p>Welcome Back!</p>
         </div>
         <ul className="sidebar-menu">

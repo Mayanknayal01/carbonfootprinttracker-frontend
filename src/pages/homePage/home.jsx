@@ -102,8 +102,8 @@ const Home = () => {
     const {userData} = useContext(DataContext)
     return (
         <div className="home">
-        <Sidebar data={userData
-            
+        <Sidebar data={userData[0].name
+
         }/>
         <main>
             <SearchBar />
