@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { FaHome, FaChartPie, FaDollarSign, FaBoxes, FaUser, FaEnvelope, FaCog, FaSignOutAlt } from 'react-icons/fa';
 import { neededImages } from '../../assets/assets';
 
-const Sidebar = () => (
+const Sidebar = ({data}) => (
     <div className="sidebar">
         <div className="sidebar-profile">
             <h2>Carbon Footprint Tracker</h2>
             <img src={neededImages.profile} alt="Profile" />
-            <h3>Mark Johnson</h3>
+            <h3>{data[0].name}</h3>
             <p>Welcome Back!</p>
         </div>
         <ul className="sidebar-menu">

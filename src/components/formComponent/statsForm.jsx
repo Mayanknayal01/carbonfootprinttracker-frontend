@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import FirstHeader from '../header/firstHeader/FirstHeader';
 import './statsForm.css';
+import { DataContext } from '../creatContext/creatContext';
 
 const StatsForm = () => {
+    const { setUserData } = useContext(DataContext);
     const [formData, setFormData] = useState({
         name: '',
         age: '',
@@ -54,6 +56,9 @@ const StatsForm = () => {
                 },
                 body: JSON.stringify(dataToSubmit)
             });
+            if (response.data) {
+                setUserData(response.data);
+              }
 
             if (response.ok) {
                 const responseData = await response.json();

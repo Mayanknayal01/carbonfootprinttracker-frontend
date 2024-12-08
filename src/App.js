@@ -14,8 +14,11 @@ function App() {
             <Route path='/' element={<LandingPage /> } />
             <Route path="/login" element={<LoginPage />} /> {/* Default route, shows LoginPage */}
             <Route path="/register" element={<RegisterPage />} /> {/* Route for RegisterPage */}
+            
             <Route path='/home' element={<HomePage /> } />
+            
             <Route path='/statsForm' element={<StatsForm /> } />
+          
             </Routes>
         </div>
         </Router>

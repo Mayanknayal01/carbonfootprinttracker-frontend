@@ -88,7 +88,7 @@
 
 
 // Home.jsx
-import React from 'react';
+import React, { useContext } from 'react';
 import Sidebar from '../../components/homeComponents/Sidebar';
 import SearchBar from '../../components/homeComponents/SearchBar';
 import DashboardData from '../../components/homeComponents/DashboardData';
@@ -96,11 +96,15 @@ import './home.css';
 import Chart from '../../components/homeComponents/Chart';
 import PieChart from '../../components/homeComponents/PieChart';
 import YourData from '../../components/homeComponents/YourData';
+import { DataContext } from '../../components/creatContext/creatContext';
 
 const Home = () => {
+    const {userData} = useContext(DataContext)
     return (
         <div className="home">
-        <Sidebar />
+        <Sidebar data={userData
+            
+        }/>
         <main>
             <SearchBar />
             <DashboardData />

@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import FirstHeader from "../../../components/header/firstHeader/FirstHeader";
+import { DataContext } from "../../../components/creatContext/creatContext";
 
 const LoginPage = () => {
+  const {setUserData } = useContext(DataContext);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
+  // Log userData changes
+  
   // Handle form data changes
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,10 +41,9 @@ const LoginPage = () => {
       if (response.ok) {
         localStorage.setItem("userId", result.id); // Save userId in localStorage
         alert("Login successful!");
-        console.log("Logged in user:", result);
+        await setUserData(result.data);
         navigate("/home"); // Navigate to homepage after success
       } else {
-        // Show error message from backend
         alert(result.error || "Login failed! Please check your credentials.");
       }
     } catch (error) {
