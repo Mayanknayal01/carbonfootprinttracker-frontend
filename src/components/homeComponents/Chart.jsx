@@ -1,29 +1,35 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+import dayjs from 'dayjs'; // Use a library to format the date
 
-const data = [
-    { name: 'Mon', black: 20, beige: 20 },
-    { name: 'Tue', black: 30, beige: 10 },
-    { name: 'Wed', black: 40, beige: 0 },
-    { name: 'Thu', black: 25, beige: 15 },
-    { name: 'Fri', black: 35, beige: 5 },
-    { name: 'Sat', black: 20, beige: 20 },
-    { name: 'Sun', black: 10, beige: 30 },
-];
+const Chart = ({ data }) => {
+  // Format dates to only show the date part
+  const formattedData = data.map((entry) => ({
+    ...entry,
+    date: dayjs(entry.date).format('YYYY-MM-DD'), // Format date to 'YYYY-MM-DD'
+  }));
 
-const Chart = () => (
+  return (
     <div className="chart-container">
-        <BarChart width={700} height={300} data={data}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            {/* Bottom Black Layer */}
-            <Bar dataKey="black" stackId="a" fill="#1c1c1c" />
-            {/* Top Beige Layer */}
-            <Bar dataKey="beige" stackId="a" fill="#f8f7f4" />
-        </BarChart>
+      <BarChart
+        width={800} // Adjust the width as needed
+        height={300}
+        data={formattedData}
+        barSize={50} // Increase the width of each bar
+        margin={{ left: 0, right: 0, top: 20, bottom: 40 }} // Adjust margins for alignment
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis
+          dataKey="date"
+          interval={0} // Display all date labels
+          tick={{ angle: -45, textAnchor: 'end' }} // Rotate labels if needed
+        />
+        <YAxis />
+        <Tooltip />
+        <Bar dataKey="totalCarbonFootprint" fill="#000000" /> {/* Set bar color to black */}
+      </BarChart>
     </div>
-);
+  );
+};
 
 export default Chart;
