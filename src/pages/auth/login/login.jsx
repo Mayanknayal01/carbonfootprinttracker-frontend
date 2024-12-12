@@ -37,7 +37,9 @@ const LoginPage = () => {
       if (!response.ok) {
         // Handle error response
         const errorResult = await response.json();
-        alert(errorResult.error || "Login failed! Please check your credentials.");
+        alert(
+          errorResult.error || "Login failed! Please check your credentials."
+        );
         return;
       }
 
