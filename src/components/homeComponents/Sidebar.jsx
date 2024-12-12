@@ -22,9 +22,9 @@ const Sidebar = ({ data }) => {
             </div>
             <ul className="sidebar-menu">
                 <li><FaHome /> Dashboard</li>
-                <li><Link to="/statsForm"><FaChartPie /> Check your stats!</Link></li>
-                <li><FaDollarSign /> Donation</li>
-                <li><FaBoxes /> Developer's Corner</li>
+                <li><Link to="/statsForm" style={{ textDecoration: 'none', color: 'inherit' }} > <FaChartPie /> Check your stats! </Link> </li>
+                <li><Link to="/donation" style={{ textDecoration: 'none', color: 'inherit' }} ><FaDollarSign /> Donation </Link> </li>
+                <li><Link to="/developer" style={{ textDecoration: 'none', color: 'inherit' }} ><FaBoxes /> Developer's Corner</Link></li>
                 <li><FaUser /> Edit Profile</li>
                 <li><FaEnvelope /> Contact</li>
                 <li><FaCog /> Developer's Corner</li>
