@@ -118,10 +118,6 @@ const Home = () => {
         <PieChart data={pieChartData} />
         <YourData data={pieChartData} />
       </div>
-      {/* Display the total carbon footprint */}
-      <div className="total-carbon-footprint">
-        <h2>Total Carbon Footprint: {totalCarbonFootprint.toFixed(2)} kg CO₂</h2>
-      </div>
     </div>
   );
 };

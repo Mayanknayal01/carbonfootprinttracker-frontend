@@ -5,9 +5,6 @@ import {
   FaChartPie,
   FaDollarSign,
   FaBoxes,
-  FaUser,
-  FaEnvelope,
-  FaCog,
   FaSignOutAlt,
 } from "react-icons/fa";
 import { neededImages } from "../../assets/assets";
@@ -65,15 +62,7 @@ const Sidebar = ({ data }) => {
             <FaBoxes /> Developer's Corner
           </Link>
         </li>
-        <li>
-          <FaUser /> Edit Profile
-        </li>
-        <li>
-          <FaEnvelope /> Contact
-        </li>
-        <li>
-          <FaCog /> Developer's Corner
-        </li>
+        
         <li onClick={handleLogout} style={{ cursor: "pointer" }}>
           <FaSignOutAlt /> Log Out
         </li>
